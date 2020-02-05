@@ -14,6 +14,7 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @movies = Movie.all
     @sorted = params[:sorted]
+    @filtered_by_ratings = nil
     
     if params[:ratings]
       @filtered_by_ratings = params[:ratings].keys
