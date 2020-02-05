@@ -17,11 +17,14 @@ class MoviesController < ApplicationController
     
     if params[:ratings]
       @filtered_by_ratings = params[:ratings].keys
-      @movies = Movie.where(rating: @filtered_by_ratings).order(@sorted)
+      #@movies = Movie.where(rating: @filtered_by_ratings)
     else
-      @movies = Movie.where(rating: @all_ratings).order(@sorted)
+      #@movies = Movie.where(rating: @all_ratings)
+      @filtered_by_ratings = @all_ratings
     end
-
+      
+      
+    @movies = @movies.where(rating: @filtered_by_ratings).order(@sort)
     
   end
 
