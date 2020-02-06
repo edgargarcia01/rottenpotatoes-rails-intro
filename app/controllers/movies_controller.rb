@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
   
     
     #ratings filter
-    if params[:ratings]
+    if params[:ratings] and !params[:ratings].nil?
       @filtered_by_ratings = params[:ratings].keys
       session[:ratings] = params[:ratings].keys
     elsif session[:ratings]
