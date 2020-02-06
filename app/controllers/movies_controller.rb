@@ -34,7 +34,7 @@ class MoviesController < ApplicationController
     
     #ratings filter
     if params[:ratings]
-      @filtered_by_ratings = params[:ratings]
+      @filtered_by_ratings = params[:ratings].keys
       #session[:ratings] = params[:ratings]
     #elsif session[:ratings]
       #@filtered_by_ratings = session[:ratings]
