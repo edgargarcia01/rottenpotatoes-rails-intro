@@ -57,7 +57,6 @@ class MoviesController < ApplicationController
     #@movies = Movie.where(:rating => @filtered_by_ratings).order(@sorted)
     
     @movies = Movie.order(@sorted)
-    
   end
 
   def new
