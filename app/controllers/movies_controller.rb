@@ -13,7 +13,6 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
     @movies = Movie.all
-    @filtered_by_ratings = nil
     
     sessionState = false
     
@@ -55,7 +54,7 @@ class MoviesController < ApplicationController
     
     #@movies = Movie.where(:rating => @filtered_by_ratings).order(@sorted)
     
-    @movies = Movie.where(:ratings => @filtered_by_ratings)
+    @movies = Movie.where(:rating => @filtered_by_ratings)
   end
 
   def new
