@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
       @sorted = nil
     end
 
-    
+=begin
     #ratings filter
     if params.has_key?(:ratings)
       @filtered_by_ratings = params[:ratings].keys
@@ -44,21 +44,24 @@ class MoviesController < ApplicationController
       session[:ratings] = nil
     end
     
-    
+=end
+
     if sessionState
       flash.keep
-      redirect_to movies_path(:sorted=>session[:sorted],:ratings=>session[:ratings])
+      #redirect_to movies_path(:sorted=>session[:sorted],:ratings=>session[:ratings])
       #redirect_to movies_path(:ratings => session[:ratings])
+      redirect_to movies_path(:sorted=>session[:sorted])
     end
     
-    #@movies = Movie.where(:rating => @filtered_by_ratings).order(@sorted)
-    
+    @movies = Movie.order(@sorted)
+=begin    
     if @filtered_by_ratings.nil?
       @movies = Movie.all
       @filtered_by_ratings = ''
     else
       @movies = Movie.where(:rating => @filtered_by_ratings)
     end
+=end
     
   end
 
