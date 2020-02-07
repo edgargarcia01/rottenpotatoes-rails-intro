@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
     @movies = Movie.all
+    #@filtered_by_ratings = nil
     
     sessionState = false
     
