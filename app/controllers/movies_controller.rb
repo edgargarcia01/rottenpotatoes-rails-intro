@@ -62,10 +62,10 @@ class MoviesController < ApplicationController
     
   
     if @filtered_by_ratings.nil?
-      @movies = Movie.all
+      @movies = Movie.all.order(@sorted)
       @filtered_by_ratings = ''
     else
-      @movies = Movie.where(:rating => @filtered_by_ratings)
+      @movies = Movie.where(:rating => @filtered_by_ratings).order(@sorted)
       #@movies = @movies.order(@sorted)
     end
 
