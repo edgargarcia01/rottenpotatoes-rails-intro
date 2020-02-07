@@ -69,7 +69,6 @@ class MoviesController < ApplicationController
       #@movies = @movies.order(@sorted)
     end
 
-    
   end
 
   def new
