@@ -33,9 +33,6 @@ class MoviesController < ApplicationController
     
     #ratings filter
     
-    if params[:ratings].nil? and params[:commit] == "Refresh"
-      @filtered_by_ratings = nil
-      session[:ratings] = nil
     if params.has_key?(:ratings)
       @filtered_by_ratings = params[:ratings].keys
       session[:ratings] = params[:ratings].keys
@@ -44,6 +41,7 @@ class MoviesController < ApplicationController
       #sessionState = true
     else
       @filtered_by_ratings = @all_ratings
+      session[:ratings] = nil
     end
     
     
