@@ -65,7 +65,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all.order(@sorted)
       @filtered_by_ratings = ''
     else
-      @movies = Movie.where(:rating => session[:ratings]).order(session[:sorted])
+      @movies = Movie.where(:rating => session[:ratings].keys).order(session[:sorted])
     end
 
   end
