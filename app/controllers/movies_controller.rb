@@ -55,6 +55,7 @@ class MoviesController < ApplicationController
     
     @filtered_by_ratings = ''
     @movies = Movie.order(@sorted)
+    
 =begin    
     if @filtered_by_ratings.nil?
       @movies = Movie.all
