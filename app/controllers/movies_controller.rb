@@ -13,7 +13,8 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
     @movies = Movie.all
-    #@filtered_by_ratings = nil
+    @filtered_by_ratings = nil
+    session[:ratings] = nil
     
     sessionState = false
     
@@ -53,10 +54,10 @@ class MoviesController < ApplicationController
     
     #@movies = Movie.where(:rating => @filtered_by_ratings).order(@sorted)
     
-    if @filtered_by_ratings.nil? and session[:ratings].nil?
+    if @filtered_by_ratings.nil?
       @movies = Movie.all
     else
-      #@movies = Movie.where(:rating => @filtered_by_ratings)
+      @movies = Movie.where(:rating => @filtered_by_ratings)
     end
     
   end
