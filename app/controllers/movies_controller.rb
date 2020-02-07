@@ -31,13 +31,13 @@ class MoviesController < ApplicationController
 
 
     #ratings filter
-    if !params[:ratings].nil? and !params[:ratings].empty?
+    if !params[:ratings].nil?
       @filtered_by_ratings = params[:ratings]
       session[:ratings] = params[:ratings]
     elsif params[:commit] == "Refresh" 
       @filtered_by_ratings = nil
       session[:ratings] = nil
-    elsif session.has_key?(:ratings)
+    elsif session[:ratings]
       @filtered_by_ratings = session[:ratings]
       #sessionState = true
     else
@@ -62,7 +62,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all
       @filtered_by_ratings = ''
     else
-      @movies = Movie.where(:rating => @filtered_by_ratings.keys)
+      @movies = Movie.where(:rating => params[:ratings].keys)
       #@movies = @movies.order(@sorted)
     end
 
