@@ -14,7 +14,6 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @movies = Movie.all
     @filtered_by_ratings = nil
-    session[:ratings] = nil
     
     sessionState = false
     
