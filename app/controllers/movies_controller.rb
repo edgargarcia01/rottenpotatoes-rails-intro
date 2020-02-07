@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
       session[:sorted] = params[:sorted]
     elsif session[:sorted]
       @sorted = session[:sorted]
-      #sessionState = true
+      sessionState = true
     else
       @sorted = nil
     end
@@ -52,8 +52,8 @@ class MoviesController < ApplicationController
 
     if sessionState
       flash.keep
-      #redirect_to movies_path(:sorted=>session[:sorted],:ratings => session[:ratings])
-      redirect_to movies_path(:ratings => session[:ratings])
+      redirect_to movies_path(:sorted => session[:sorted],:ratings => session[:ratings])
+      #redirect_to movies_path(:ratings => session[:ratings])
       #redirect_to movies_path(:sorted=>session[:sorted])
     end
     
