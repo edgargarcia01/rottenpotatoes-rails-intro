@@ -41,6 +41,7 @@ class MoviesController < ApplicationController
       #sessionState = true
     else
       @filtered_by_ratings = nil
+      session[:ratings] = nil
     end
     
     
