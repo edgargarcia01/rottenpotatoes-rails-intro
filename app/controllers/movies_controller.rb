@@ -15,16 +15,18 @@ class MoviesController < ApplicationController
     @movies = Movie.all
     @filtered_by_ratings = nil
     
+    session[:sorted] = nil
+    
     sessionState = false
     
 
     #sort
     if params[:sorted]
       @sorted = params[:sorted]
-      session[:sorted] = params[:sorted]
+      #session[:sorted] = params[:sorted]
     elsif session[:sorted]
-      @sorted = session[:sorted]
-      sessionState = true
+      #@sorted = session[:sorted]
+      #sessionState = true
     else
       @sorted = nil
     end
