@@ -56,8 +56,7 @@ class MoviesController < ApplicationController
     
     if @filtered_by_ratings.nil?
       @movies = Movie.all
-      @filtered_by_ratings = @all_ratings
-      session[:ratings] = nil
+      @filtered_by_ratings = ''
     else
       @movies = Movie.where(:rating => @filtered_by_ratings)
     end
