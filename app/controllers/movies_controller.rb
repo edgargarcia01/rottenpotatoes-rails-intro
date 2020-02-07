@@ -62,7 +62,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all
       @filtered_by_ratings = ''
     else
-      @movies = Movie.where(:rating => params[:ratings].keys)
+      @movies = Movie.where(:rating => @filtered_by_ratings.keys)
       #@movies = @movies.order(@sorted)
     end
 
