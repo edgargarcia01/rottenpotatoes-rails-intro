@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
 
 
     #ratings filter
-    if !params[:ratings].empty?
+    if !params[:ratings].nil? and !params[:ratings].empty?
       @filtered_by_ratings = params[:ratings].keys
       session[:ratings] = params[:ratings].keys
     elsif params[:commit] == "Refresh" 
