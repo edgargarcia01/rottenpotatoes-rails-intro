@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
     
     sessionState = false
     
-    
+=begin
     #sort
     if params[:sorted]
       @sorted = params[:sorted]
@@ -29,10 +29,11 @@ class MoviesController < ApplicationController
       @sorted = nil
     end
 
+=end
 
     #ratings filter
     if !params[:ratings].nil?
-      @filtered_by_ratings = params[:ratings]
+      @filtered_by_ratings = params[:ratings].keys
       session[:ratings] = params[:ratings]
     elsif params[:commit] == "Refresh" 
       @filtered_by_ratings = nil
@@ -49,8 +50,8 @@ class MoviesController < ApplicationController
 
     if sessionState
       flash.keep
-      redirect_to movies_path(:sorted=>session[:sorted],:ratings => session[:ratings])
-      #redirect_to movies_path(:ratings => session[:ratings])
+      #redirect_to movies_path(:sorted=>session[:sorted],:ratings => session[:ratings])
+      redirect_to movies_path(:ratings => session[:ratings])
       #redirect_to movies_path(:sorted=>session[:sorted])
     end
     
@@ -62,7 +63,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all
       @filtered_by_ratings = ''
     else
-      @movies = Movie.where(:rating => @filtered_by_ratings.keys)
+      @movies = Movie.where(:rating => @filtered_by_ratings)
       #@movies = @movies.order(@sorted)
     end
 
