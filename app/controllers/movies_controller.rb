@@ -18,7 +18,6 @@ class MoviesController < ApplicationController
     sessionState = false
     
     #sort
-=begin
     if params[:sorted]
       @sorted = params[:sorted]
       session[:sorted] = params[:sorted]
@@ -28,7 +27,6 @@ class MoviesController < ApplicationController
     else
       @sorted = nil
     end
-=end 
 
     
     #ratings filter
