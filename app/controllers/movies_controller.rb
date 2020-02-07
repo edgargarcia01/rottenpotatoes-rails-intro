@@ -17,7 +17,6 @@ class MoviesController < ApplicationController
     
     sessionState = false
     
-
     #sort
 =begin
     if params[:sorted]
