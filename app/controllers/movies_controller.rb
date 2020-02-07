@@ -53,7 +53,12 @@ class MoviesController < ApplicationController
     
     #@movies = Movie.where(:rating => @filtered_by_ratings).order(@sorted)
     
-    @movies = Movie.where(:rating => @filtered_by_ratings)
+    if @filtered_by_ratings.nil? and session[:ratings].nil?
+      @movies = Movie.all
+    else
+      @movies = Movie.where(:rating => @filtered_by_ratings)
+    end
+    
   end
 
   def new
