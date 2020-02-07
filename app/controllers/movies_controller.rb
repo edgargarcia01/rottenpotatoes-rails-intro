@@ -53,6 +53,7 @@ class MoviesController < ApplicationController
       redirect_to movies_path(:sorted=>session[:sorted])
     end
     
+    @filtered_by_ratings = ''
     @movies = Movie.order(@sorted)
 =begin    
     if @filtered_by_ratings.nil?
