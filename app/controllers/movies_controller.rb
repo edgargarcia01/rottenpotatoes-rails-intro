@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
     if params.has_key?(:ratings)
       @filtered_by_ratings = params[:ratings].keys
       session[:ratings] = params[:ratings].keys
-    elsif session.has_key?[:ratings]
+    elsif session.has_key?(:ratings)
       @filtered_by_ratings = session[:ratings]
       sessionState = true
     else
